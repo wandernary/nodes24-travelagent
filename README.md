@@ -57,7 +57,7 @@ cd project-name
 
 # Install dependencies
 npm install
-
+```bash
 
 ### Database Setup
 
