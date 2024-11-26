@@ -57,7 +57,7 @@ cd project-name
 
 # Install dependencies
 npm install
-```bash
+``` 
 
 ### Database Setup
 
@@ -70,3 +70,10 @@ This section provides instructions on setting up and configuring the Neo4j datab
    After installation, start the Neo4j database service:
    ```bash
    neo4j start
+   ```
+3. **Configure Connection Settings**
+```plaintext
+NEO4J_URI=bolt://localhost:7687
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=your_password
+```
