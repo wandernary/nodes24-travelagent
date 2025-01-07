@@ -10,70 +10,48 @@ A Berlin Museum Itinerary Planner using Neo4j and Langgraph’s AI Agentic for a
 ## Table of Contents
 
 1. [Project Overview](#project-overview)
-2. [Tech Stack](#tech-stack)
-3. [Getting Started](#getting-started)
-4. [Installation](#installation)
-5. [Database Setup](#database-setup)
-6. [Usage](#usage)
-7. [Configuration](#configuration)
-8. [Contributing](#contributing)
-9. [License](#license)
-10. [Acknowledgments](#acknowledgments)
+2. [Getting Started](#getting-started)
+3. [Installation](#installation)
+4. [Database Setup](#database-setup)
+5. [Usage](#usage)
+6. [License](#license)
 
 ---
 
 ### Project Overview
 
-This project is a personalized travel itinerary planner with a limited scope of Berlin museums. It uses Langgraph’s multiple AI Agents architecture, along with Neo4j graph databases to provide. The system allows users to generate optimized itineraries that consider distance, time, and user interests.
+This project is a personalized travel itinerary planner with a limited scope of Berlin museums. It uses Langgraph’s multiple AI Agents architecture, along with Neo4j graph databases to provide the knowledge graph and routing. The system allows users to generate optimized itineraries that consider distance, time, and user interests.
 
-### Tech Stack
-
-| Technology | Description                             |
-|------------|-----------------------------------------|
-| Language   | JavaScript                |
-| Framework  | Next.js                    |
-| Database   | Neo4j                    |
-| Tools      | Langgraph, Neo4j     |
+This project uses JavaScript as the programming language and Next.js as the framework for building the application. It uses Neo4j as the graph database to store and query relationships between data.
 
 ### Getting Started
 
-Explain prerequisites for setting up the project (e.g., system requirements, libraries, API keys). Include links to any external accounts or resources needed.
 This project requires:
-- an OpenAI account
-- a Tavily account
-- an instance of Neo4j database
-- Langsmith
+- OpenAI API key. Get your key [here] (https://openai.com/api/)
+- Tavily API key. Get your key [here] (https://tavily.com/)
+- an instance of Neo4j database (locally or in AuraDB) 
+- Langsmith (optional)
 
 ### Installation
 
-Provide a step-by-step guide for installing the project locally. Include commands and explain what each does where necessary.
-
-```bash
-# Clone the repository
-git clone https://github.com/username/project-name.git
-
-# Change directory into the project
-cd project-name
-
-# Install dependencies
-npm install
-``` 
+Tbd of step-by-step guide for installing the project locally. 
 
 ### Database Setup
 
-This section provides instructions on setting up and configuring the Neo4j database.
+Tbd instructions on setting up and configuring the Neo4j database, including getting the data from Wikidata.
 
-1. **Install Neo4j**  
-   If Neo4j isn't installed yet, follow [Neo4j's official installation guide](https://neo4j.com/download/). Ensure that it’s accessible from your environment.
+### Usage
 
-2. **Start Neo4j**  
-   After installation, start the Neo4j database service:
-   ```bash
-   neo4j start
+Tbd examples of how to use the application, including any special commands or configurations.
+
+#### Configuration
+.env file details
+API keys, database connections, and other sensitive information guidelines
+Configuration files format and any specific customization options
+   ```plaintext
+   NEO4J_URI=bolt://localhost:7687
+   NEO4J_USER=neo4j
+   NEO4J_PASSWORD=your_password
    ```
-3. **Configure Connection Settings**
-```plaintext
-NEO4J_URI=bolt://localhost:7687
-NEO4J_USER=neo4j
-NEO4J_PASSWORD=your_password
-```
+
+### License
