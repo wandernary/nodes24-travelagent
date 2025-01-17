@@ -39,21 +39,15 @@ This project uses TypeScript as the programming language and Next.js as the fram
 ### Technologies Used
 
 - [Neo4j](https://neo4j.com/) 
-
 - [Langchain JS](https://js.langchain.com/docs/introduction/)
-
 - [Langgraph.js](https://langchain-ai.github.io/langgraphjs/)
-
 - [Next.js](https://nextjs.org/)
 
 ### Requirements
 
 - OpenAI API key. Get your key [at OpenAI](https://openai.com/api/)
-
 - Tavily API key. Get your key [at Tavily](https://tavily.com/)
-
 - an instance of Neo4j database (locally or in [AuraDB](https://neo4j.com/product/auradb/)) 
-
 - Langsmith (optional)
 
 ## Installation
@@ -65,6 +59,43 @@ Tbd of step-by-step guide for installing the project locally. 
 Tbd instructions on setting up and configuring the Neo4j database, including getting the data from Wikidata.
 
 The Berlin museum data is from Wikidata, following the example in the [Tomaz Bratanic’s article about Exploring Pathfinding Graph Algorithm](https://tbgraph.wordpress.com/2020/09/01/traveling-tourist-part-2-exploring-pathfinding-graph-algorithms/).
+
+To execute the `SPARQL` query, we need [the Neosemantics (n10s) plugin](https://github.com/neo4j-labs/neosemantics), which only supports up to Neo4j version 5.20 (as of 16.01.2025).
+
+This is the `SPARQL` query for Berlin Museums
+
+```
+PREFIX sch: <http://schema.org/> 
+CONSTRUCT{ 
+    ?museum a sch:Museum; 
+    sch:name ?museumLabel; 
+    sch:name_de ?museumLabel; 
+    sch:name_en ?museumLabel_en; 
+    sch:location ?coordinates; 
+    sch:website ?website;
+    sch:HAS_TYPE ?museumType. 
+    ?museumType a sch:MuseumType;
+    sch:name ?museumTypeLabel;
+} 
+WHERE { 
+    ?museum (wdt:P31/wdt:P279*) wd:Q33506.
+    ?museum wdt:P131 wd:Q163966. 
+    ?museum rdfs:label ?museumLabel. FILTER(LANG(?museumLabel) = "de") 
+    OPTIONAL { ?museum rdfs:label ?museumLabel_en. FILTER(LANG(?museumLabel_en) = "en") }
+    ?museum wdt:P625 ?coordinates.
+    OPTIONAL { ?museum wdt:P856 ?website. }
+    OPTIONAL { 
+        ?museum wdt:P31 ?museumType.
+        ?museumType rdfs:label ?museumTypeLabel.
+        FILTER(LANG(?museumTypeLabel) = "en")
+    }
+    OPTIONAL { 
+        ?museum wdt:P131 ?municipal.
+        ?municipal rdfs:label ?municipalName.
+        FILTER(LANG(?municipalName) = "en")
+    }
+} 
+```
 
 ### Configuration
 
