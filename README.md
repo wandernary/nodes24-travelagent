@@ -52,15 +52,27 @@ This project uses TypeScript as the programming language and Next.js as the fram
 
 ## Installation
 
-Tbd of step-by-step guide for installing the project locally. 
+To get all the dependencies 
+```
+npm install
+```
+
+and then
+
+```
+npm run dev
+```
+to run the application
+
 
 ### Getting the data for the museum application
 
-Tbd instructions on setting up and configuring the Neo4j database, including getting the data from Wikidata.
 
 The Berlin museum data is from Wikidata, following the example in the [Tomaz Bratanic’s article about Exploring Pathfinding Graph Algorithm](https://tbgraph.wordpress.com/2020/09/01/traveling-tourist-part-2-exploring-pathfinding-graph-algorithms/).
 
 To execute the `SPARQL` query, we need [the Neosemantics (n10s) plugin](https://github.com/neo4j-labs/neosemantics), which only supports up to Neo4j version 5.20 (as of 16.01.2025).
+
+Alternatively, you can also use the database dump at `resource/neo4j.dump`. It's tested with local Neo4j database version 5.20. 
 
 This is the `SPARQL` query for Berlin Museums
 
@@ -97,6 +109,10 @@ WHERE {
 } 
 ```
 
+
+
+
+
 ### Configuration
 
 To set config, create a `.env.local` file details, fill in the details from the Neo4j instance and the other keys you've acquired. 
@@ -119,9 +135,7 @@ LANGCHAIN_PROJECT= 
 
 ```
 
-## License
 
-New Markdown file
 
 ## Further Resources
 
