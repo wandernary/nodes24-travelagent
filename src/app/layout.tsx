@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Wandernary - Berlin Museum Itineraries",
+  title: "NextGen Travel App - Berlin Museum Itineraries",
   description: "NextGen Travel App - Powered by Agentic AI and Neo4J",
 };
 
