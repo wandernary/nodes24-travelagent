@@ -1,5 +1,3 @@
-import { ChatOpenAI } from "@langchain/openai";
-import { OpenAIEmbeddings } from "@langchain/openai";
 import { HumanMessage } from "@langchain/core/messages";
 // for the calling of langgraph
 import { END, START, StateGraph } from "@langchain/langgraph";
@@ -25,19 +23,6 @@ export type MapRecResult = {
 
 // tag::call[]
 export async function call(input: string, sessionId: string): Promise<MapRecResult> {
-  const llm = new ChatOpenAI({
-    openAIApiKey: process.env.OPENAI_API_KEY,
-    configuration: {
-      baseURL: process.env.OPENAI_API_BASE,
-    },
-  });
-  const embeddings = new OpenAIEmbeddings({
-    openAIApiKey: process.env.OPENAI_API_KEY,
-    configuration: {
-      baseURL: process.env.OPENAI_API_BASE,
-    },
-  });
-
   // 1. Create the graph
   const workflow = new StateGraph(AgentState)
 
